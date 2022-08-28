@@ -1,10 +1,10 @@
-package com.pablovass.eresevation;
+package com.pablovass;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EResevationApplicationTests {
+class EReservationApplicationTests {
 
 	@Test
 	void contextLoads() {

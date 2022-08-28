@@ -1,13 +1,13 @@
-package com.pablovass.eresevation;
+package com.pablovass;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EResevationApplication {
+public class EReservationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EResevationApplication.class, args);
+		SpringApplication.run(EReservationApplication.class, args);
 	}
 
 }
