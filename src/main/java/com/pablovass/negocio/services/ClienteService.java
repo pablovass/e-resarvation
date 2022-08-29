@@ -17,11 +17,12 @@ import com.pablovass.negocio.repository.ClienteRepository;
  *
  */
 @Service // es como el @component pero orientado para los servicios
-@Transactional(readOnly=true)// todos los metodos tratados en modo lectura 
+@Transactional(readOnly=true)//A modo global. y readOnly para aquellos que no tengan @transaccional
 public class ClienteService {
 	private final ClienteRepository clienteRepository;
 
 	public ClienteService(ClienteRepository clienteRepository) {
+
 		this.clienteRepository = clienteRepository;
 	}
 	/**
