@@ -9,5 +9,3 @@ spring:
       ddl-auto: create-drop
       generate-ddl: true
     show-sql: true
-
-
