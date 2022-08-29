@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/e-reservation
+    username: postgres
+    password: hombre1986
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      generate-ddl: true
+    show-sql: true
+
+

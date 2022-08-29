@@ -1,4 +1,4 @@
-package com.pablovass.ereservasiones.vista.resources.vo;
+package com.pablovass.vista.resources.vo;
 
 import java.util.Set;
 

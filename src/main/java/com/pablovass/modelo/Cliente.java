@@ -23,6 +23,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 @Data
 @Entity
 @Table(name = "cliente")
+// @NamedQuery otra forma de hacer query
 @NamedQuery(name="Cliente.findByIdentificacion", query="Select c from Cliente c where c.identificacionCli= ?1 ")
 public class Cliente {
 	@Id

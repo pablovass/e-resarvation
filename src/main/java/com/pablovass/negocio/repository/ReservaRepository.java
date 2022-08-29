@@ -18,7 +18,7 @@ import com.pablovass.modelo.Reserva;
  *
  */
 public interface ReservaRepository extends JpaRepository<Reserva, String>{
-	@Query("Select r from reserva r where r.fechaIngresoRes =:fechaInicio and r.fechaSalidaRes=:fechaSalida ")
-	public List<Reserva>find(@Param("fechaInicio") Date fechaInicio, @Param("fechaSalida") Date fechaSalida);	
+	//@Query("Select r from reserva r where r.fechaIngresoRes =:fechaInicio and r.fechaSalidaRes=:fechaSalida ")
+	//public List<Reserva>find(@Param("fechaInicio") Date fechaInicio, @Param("fechaSalida") Date fechaSalida);
 
 }
