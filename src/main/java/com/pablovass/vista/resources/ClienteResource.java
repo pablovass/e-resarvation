@@ -1,11 +1,8 @@
-/**
- *
- */
+
 package com.pablovass.vista.resources;
 
 import java.util.List;
 
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -47,9 +44,15 @@ public class ClienteResource {
      * @return
      */
     @PostMapping
-   // @ApiOperation(value = "Crear Cliente", notes = "Servicio para crear un nuevo cliente")
-    //@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente creado correctamente"),
-      //      @ApiResponse(code = 400, message = "Solisitud Ivalida")})
+    @Operation(summary = "Crear Cliente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Servicio para crear un nuevo cliente",
+                    content = { @Content(mediaType = "/{identificacion}",
+                            schema = @Schema(implementation = Cliente.class)) }),
+            @ApiResponse(responseCode = "201", description = "Cliente creado correctamente",
+                    content = @Content),
+            @ApiResponse(responseCode = "400", description = "Solisitud Ivalida",
+                    content = @Content) })
     public ResponseEntity<Cliente> createCliente(@RequestBody ClienteVO clienteVo) {
         Cliente cliente = new Cliente();
         cliente.setNombreCli(clienteVo.getNombreCli());
@@ -61,9 +64,15 @@ public class ClienteResource {
     }
 
     @PutMapping("/{identificacion}")
-    //@ApiOperation(value = "Actualizar Cliente", notes = "Servicio para actulizar un nuevo cliente")
-    //@ApiResponses(value = {@ApiResponse(code = 201, message = "Cliente actualizado correctamente"),
-      //      @ApiResponse(code = 404, message = "Cliente no encotrado")})
+    @Operation(summary = "Actualizar Cliente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Servicio para actulizar un nuevo cliente",
+                    content = { @Content(mediaType = "/{identificacion}",
+                            schema = @Schema(implementation = Cliente.class)) }),
+            @ApiResponse(responseCode = "201", description = "Cliente actualizado correctamente",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = " Cliente no encontrado",
+                    content = @Content) })
     public ResponseEntity<Cliente> updateCliente(@PathVariable("identificacion") String identificacion, ClienteVO clienteVo) {
         Cliente cliente = this.clienteService.findByIdentificacion(identificacion);
         if (cliente == null) {
@@ -103,11 +112,16 @@ public class ClienteResource {
     }
 
     @GetMapping
-
-    @Operation(method = "Listar Cliente", description = "Servicio para listar todos los clientes")
-    @ApiResponses(value = {@ApiResponse(responseCode = "201", description =  "Clientes Encontrados"),
-            @ApiResponse(responseCode= "404", description = "Clientes no encontrados")})
-    public ResponseEntity<List<Cliente>> findAll() {
+    @Operation(summary = "Listar Cliente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Servicio para listar todos los clientes",
+                    content = { @Content(mediaType = "/",
+                            schema = @Schema(implementation = Cliente.class)) }),
+            @ApiResponse(responseCode = "201", description = "Clientes Encontrados",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = " Cliente no encontrado",
+                    content = @Content) })
+   public ResponseEntity<List<Cliente>> findAll() {
 
         return ResponseEntity.ok(this.clienteService.findAll());
     }
