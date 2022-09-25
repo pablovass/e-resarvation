@@ -80,6 +80,27 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.40.2</version>
+				<configuration>
+					<images>
+						<name>pablovas/${project.build.finalName}</name>
+						<build>
+							<from>openjdk:lates</from>
+							<entryPoint>java -Dspring.profiles.active=prod -jar /Users/martosfre/application/${project.build.finalName}</entryPoint>
+							<assembly>
+								<basedir>/Users/martosfre/application/</basedir>
+								<descriptorRef>artifact</descriptorRef>
+								<inline>
+									<id>
+								</inline>
+							</assembly>
+						</build>
+					</images>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
